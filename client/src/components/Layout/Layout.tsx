@@ -7,15 +7,14 @@ import { Header } from '../Header/Header';
 // TODO: hide ToastContainer
 export const Layout: React.FC = () => {
   return (
-  <div className="wrapper">
-      <Header />      
+    <div className="wrapper">
+      <Header />
       <main className="main" data-testid="main">
         <Outlet />
       </main>
     </div>
   );
 };
-
 
 /*
       <ToastContainer limit={1} autoClose={TOAST_DELAY} position="top-center" />

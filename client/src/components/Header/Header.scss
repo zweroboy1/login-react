@@ -1,6 +1,8 @@
 @import '../../styles/variables.scss';
 
 .header {
+  position: fixed;
+  width: 100%;
   height: 80px;
   background-color: $dark-color;
 

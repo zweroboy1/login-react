@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Header.scss';
 
 
 export const Header: React.FC = () => {
@@ -7,22 +8,23 @@ export const Header: React.FC = () => {
   const user = false;
 
   return (
-    <>
-      <div>Header</div>
+    <header className="header">
+      <div className="header__container">
       {user ? (
-        <Link to="/logout">
+        <Link to="/logout" className='button'>
           Sign Out
         </Link>
       ) : (
         <>
-          <Link to="/login">
-            Login
+          <Link to="/login" className='button'>
+            Log In
           </Link>
-          <Link to="/register">
+          <Link to="/register" className='button'>
             Sign Up
           </Link>
         </>
       )}
-    </>
+      </div>
+    </header>
   );
 };

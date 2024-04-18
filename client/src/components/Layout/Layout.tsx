@@ -9,7 +9,7 @@ export const Layout: React.FC = () => {
   return (
     <div className="wrapper">
       <Header />
-      <main className="main" data-testid="main">
+      <main className="main">
         <Outlet />
       </main>
     </div>

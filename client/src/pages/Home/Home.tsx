@@ -1,5 +1,4 @@
 import React from 'react';
-import './Home.scss';
 import { Deals } from '../../components/Deals/Deals';
 
 export const Home: React.FC = () => {

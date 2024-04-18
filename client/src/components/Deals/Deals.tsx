@@ -1,5 +1,4 @@
 import React from 'react';
-import './Deals.scss';
 
 import deal1Image from '../../assets/deal1.jpg';
 import deal2Image from '../../assets/deal2.jpg';

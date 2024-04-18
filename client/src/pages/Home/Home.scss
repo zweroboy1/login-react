@@ -1,16 +1,19 @@
 @import '../../styles/variables.scss';
 .home {
   display: flex;
-  min-height: 1024px;
-  background-image: url('../../assets/main-bg.jpg');
+  flex-direction: column;
 
-  &__wrapper {
+  &__overlay {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100%;
+    min-height: 1024px;
     background-image: url('../../assets/main-bg-overlay.png');
+  }
+
+  &__wrapper {
+    background-image: url('../../assets/main-bg.jpg');
   }
 
   &__container {
@@ -28,7 +31,7 @@
     font-size: 24px;
     font-weight: 400;
     line-height: 32px;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.4px;
     text-align: center;
   }
 

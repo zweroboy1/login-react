@@ -1,5 +1,6 @@
 import React from 'react';
 import { Deals } from '../../components/Deals/Deals';
+import { Link } from 'react-router-dom';
 
 export const Home: React.FC = () => {
   return (
@@ -15,9 +16,7 @@ export const Home: React.FC = () => {
               mass defect is
             </p>
             <p className="home__button-conteiner">
-              <a href="#!" className="button button_home">
-                Get Started
-              </a>
+              <Link to="/404" className="button button_home">Get Started</Link>
             </p>
           </div>
         </div>

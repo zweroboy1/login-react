@@ -22,6 +22,10 @@
     font-size: 20px;
     color: $light-color;
   }
+
+  &_notfound {
+    height: 50px;
+  }
 }
 .button:hover {
   background-color: $accent-color;

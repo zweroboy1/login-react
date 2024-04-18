@@ -16,7 +16,9 @@ export const Home: React.FC = () => {
               mass defect is
             </p>
             <p className="home__button-conteiner">
-              <Link to="/404" className="button button_home">Get Started</Link>
+              <Link to="/404" className="button button_home">
+                Get Started
+              </Link>
             </p>
           </div>
         </div>

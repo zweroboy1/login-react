@@ -7,3 +7,10 @@ export type Deal = {
   daysLeft: number;
   image: string;
 };
+
+export interface UserCredential {
+  userId: string;
+  email: string;
+  accessToken: string;
+  refreshToken: string;
+}

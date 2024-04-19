@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-// import { RootState } from '../../../store/store';
+import { RootState } from '../store/store';
 
 interface ProtectedRouteProps {
   redirectLink: string;
@@ -13,8 +13,7 @@ export const WithoutAuth: React.FC<ProtectedRouteProps> = ({
   redirectLink,
   children,
 }) => {
-  const user = false;
-  // const user = useSelector((state: RootState) => state.user.value);
+  const user = useSelector((state: RootState) => state.user.email);
   if (!user) return <Navigate to={redirectLink} />;
 
   return children;

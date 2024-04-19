@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { loginSchema } from '../../schemas';
 import { loginUser } from '../../services/auth';
+import { setUser } from '../../store/reducers/userSlice';
 
 export const Login: React.FC = () => {
   const {
@@ -15,12 +17,16 @@ export const Login: React.FC = () => {
 
   const [submiting, setSubmiting] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
+  const dispatch = useDispatch();
+  const history = useNavigate();
 
   const onSubmit = async (data: { email: string; password: string }) => {
     setSubmiting(true);
     try {
       const credentials = await loginUser(data);
+      dispatch(setUser(credentials));
       console.log(credentials);
+      history('/');
     } catch (e) {
       const errorText = e instanceof Error ? e.message : null;
       console.log(errorText);
@@ -91,7 +97,11 @@ export const Login: React.FC = () => {
             </div>
             <div>
               <button
-                className={submiting ? 'button button_login button_loading' : 'button button_login'}
+                className={
+                  submiting
+                    ? 'button button_login button_loading'
+                    : 'button button_login'
+                }
                 disabled={!isValid || submiting || buttonDisabled}
                 type="submit"
                 role="submit"

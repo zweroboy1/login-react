@@ -2,7 +2,7 @@ import { pbkdf2 } from 'crypto';
 
 export const hashPassword = (
   password: string,
-  salt: string,
+  salt: string
 ): Promise<string> => {
   return new Promise((resolve, reject) => {
     const iterations = 10000;

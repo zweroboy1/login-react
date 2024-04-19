@@ -15,6 +15,10 @@ export const Header: React.FC = () => {
 
   return (
     <header className="header">
+      <Link to="/" className="logo button button_header">
+        Main
+      </Link>
+
       <div className="header__container">
         {user ? (
           <button className="button button_header" onClick={handleLogout}>

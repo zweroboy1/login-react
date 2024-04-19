@@ -7,7 +7,6 @@ import { DealsModule } from './deals/deals.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 
-
 @Module({
   imports: [
     ServeStaticModule.forRoot({
@@ -15,9 +14,9 @@ import { AuthModule } from './auth/auth.module';
     }),
     DealsModule,
     PrismaModule,
-    AuthModule
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

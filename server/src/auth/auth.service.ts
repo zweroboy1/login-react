@@ -24,7 +24,10 @@ const userSelectFields = {
 PrismaService;
 @Injectable()
 export class AuthService {
-  constructor(private prisma: PrismaService, private jwtService: JwtService) { }
+  constructor(
+    private prisma: PrismaService,
+    private jwtService: JwtService
+  ) {}
 
   async signup(email: string, password: string) {
     const hashedPassword = await hashPassword(password, process.env.CRYPT_SALT);

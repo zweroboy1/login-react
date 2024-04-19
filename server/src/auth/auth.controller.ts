@@ -10,7 +10,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   @UsePipes(new ValidationPipe({ whitelist: true }))
   @Post('signup')
@@ -23,6 +23,4 @@ export class AuthController {
   login(@Body() createUserDto: CreateUserDto) {
     return this.authService.login(createUserDto.email, createUserDto.password);
   }
-
-
 }

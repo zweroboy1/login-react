@@ -88,8 +88,8 @@ export const Register: React.FC = () => {
                 )}
               </div>
             </div>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <div>
               <button
                 className={

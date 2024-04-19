@@ -22,6 +22,10 @@
     align-items: center;
     max-width: 1085px;
     color: $light-color;
+
+    @include media('l') {
+      padding: 0 15px;
+    }
   }
 
   &__text {
@@ -33,6 +37,11 @@
     line-height: 32px;
     letter-spacing: -0.4px;
     text-align: center;
+
+    @include media('l') {
+      font-size: 18px;
+      line-height: 24px;
+    }
   }
 
   &__button-conteiner {

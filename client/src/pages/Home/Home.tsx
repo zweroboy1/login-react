@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 export const Home: React.FC = () => {
   return (
-    <main className="main home">
-      <div className="home__wrapper">
+    <div className="home">
+      <section className="home__wrapper">
         <div className="home__overlay">
           <div className="home__container">
             <h1 className="h1">The chemical &nbsp;negatively charged</h1>
@@ -22,8 +22,8 @@ export const Home: React.FC = () => {
             </p>
           </div>
         </div>
-      </div>
+      </section>
       <Deals />
-    </main>
+    </div>
   );
 };

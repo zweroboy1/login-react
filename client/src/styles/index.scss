@@ -31,6 +31,11 @@ a {
   font-size: 64px;
   line-height: 80px;
   text-align: center;
+
+  @include media('l') {
+    font-size: 40px;
+    line-height: 50px;
+  }
 }
 
 .h2 {
@@ -45,6 +50,11 @@ a {
   font-size: 20px;
   font-weight: 700;
   line-height: 34px;
+
+  @include media('s') {
+    font-size: 16px;
+    font-size: 24px;
+  }
 }
 
 .text {
@@ -52,6 +62,11 @@ a {
   font-size: 18px;
   font-weight: 700;
   line-height: 22px;
+
+  @include media('s') {
+    font-size: 14px;
+    line-height: 16px;
+  }
 }
 
 .link {

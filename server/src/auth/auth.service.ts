@@ -1,5 +1,7 @@
 import {
+  ConflictException,
   Injectable,
+  InternalServerErrorException,
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -26,11 +28,20 @@ export class AuthService {
 
   async signup(email: string, password: string) {
     const hashedPassword = await hashPassword(password, process.env.CRYPT_SALT);
-    const newUser = await this.prisma.user.create({
-      data: { email, password: hashedPassword },
-      select: userSelectFields,
-    });
-    return newUser;
+    try {
+      await this.prisma.user.create({
+        data: { email, password: hashedPassword },
+        select: userSelectFields,
+      });
+      const loggedUser = await this.login(email, password);
+      return loggedUser;
+    } catch (error) {
+      if (error.code === 'P2002') {
+        throw new ConflictException('This email is already in use');
+      } else {
+        throw new InternalServerErrorException('Failed to create user');
+      }
+    }
   }
 
   async login(email: string, password: string) {

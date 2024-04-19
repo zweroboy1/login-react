@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Deal } from '../../../../shared/types';
+import { Deal } from '../../types';
 import { BASE_URL } from '../../constants';
 
 export const Deals: React.FC = () => {

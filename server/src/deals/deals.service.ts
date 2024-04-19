@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Deal } from '../../../shared/types';
+import { Deal } from '../types';
 
 const deals: Deal[] = [
   {

@@ -18,8 +18,8 @@ export const Header: React.FC = () => {
       <div className="header__container">
         {user ? (
           <button className="button button_header" onClick={handleLogout}>
-          Sign Out
-        </button>
+            Sign Out
+          </button>
         ) : (
           <>
             <Link to="/login" className="button button_header">

@@ -1,5 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { Deal } from '../types';
+import { PrismaService } from 'src/prisma/prisma.service';
+import { Deal } from '@prisma/client';
+
+//import { Deal } from '../types';
+/*import { Deals } from '../../../client/src/components/Deals/Deals';
 
 const deals: Deal[] = [
   {
@@ -39,11 +43,13 @@ const deals: Deal[] = [
     image: 'deal4.jpg',
   },
 ];
+*/
 
 @Injectable()
 export class DealsService {
+  constructor(private prisma: PrismaService) {}
   async findAll(): Promise<Deal[]> {
-    //const deals = await this.prisma.user.findMany({ select: userSelectFields });
+    const deals = await this.prisma.deal.findMany();
     return deals;
   }
 }

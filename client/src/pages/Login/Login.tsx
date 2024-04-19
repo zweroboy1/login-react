@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Link } from 'react-router-dom';
 
 import { loginSchema } from '../../schemas';
+import { loginUser } from '../../services/auth';
 
 export const Login: React.FC = () => {
   const {
@@ -18,11 +19,12 @@ export const Login: React.FC = () => {
   const onSubmit = async (data: { email: string; password: string }) => {
     setSubmiting(true);
     try {
-      //await loginUser(data);
-      console.log(data);
+      const credentials = await loginUser(data);
+      console.log(credentials);
     } catch (e) {
-      // const errorCode = e instanceof Error ? e.message : null;
-      setButtonDisabled(true);
+      const errorText = e instanceof Error ? e.message : null;
+      console.log(errorText);
+      setButtonDisabled(false);
       /*
       toast.error(toastText, {
         toastId: 'toast',
@@ -89,9 +91,7 @@ export const Login: React.FC = () => {
             </div>
             <div>
               <button
-                className={
-                  'button button_login' + (submiting ? 'button_loading' : '')
-                }
+                className={submiting ? 'button button_login button_loading' : 'button button_login'}
                 disabled={!isValid || submiting || buttonDisabled}
                 type="submit"
                 role="submit"

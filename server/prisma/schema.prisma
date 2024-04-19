@@ -17,3 +17,14 @@ model Deal {
   daysLeft Int
   image    String  @db.VarChar(255)
 }
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String
+  password  String
+  version   Int      @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([email])
+}

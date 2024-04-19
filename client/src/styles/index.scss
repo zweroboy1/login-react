@@ -4,13 +4,15 @@
 @import './variables';
 @import './mixins';
 @import './button';
+@import './input';
 @import '../components/Header/Header';
 @import '../components/Deals/Deals';
 @import '../pages/Home/Home';
+@import '../pages/Login/Login';
 @import '../pages/NotFound/NotFound';
 
 body {
-  background-color: #e5e5e5;
+  background-color: $bg-darker-color;
 }
 
 a {
@@ -23,12 +25,19 @@ a {
   margin: 0 auto;
 }
 
-.h2 {
+.h1 {
   font-family: $header-font;
   font-weight: 700;
   font-size: 64px;
   line-height: 80px;
   text-align: center;
+}
+
+.h2 {
+  font-family: $header-font;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 34px;
 }
 
 .h3 {
@@ -43,4 +52,16 @@ a {
   font-size: 18px;
   font-weight: 700;
   line-height: 22px;
+}
+
+.link {
+  font-family: $main-font;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: $accent-color;
+
+  @include hover {
+    filter: brightness(0.8);
+  }
 }

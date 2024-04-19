@@ -8,7 +8,7 @@ export const Home: React.FC = () => {
       <div className="home__wrapper">
         <div className="home__overlay">
           <div className="home__container">
-            <h2 className="h2">The chemical &nbsp;negatively charged</h2>
+            <h1 className="h1">The chemical &nbsp;negatively charged</h1>
             <p className="home__text">
               Numerous calculations predict, and experiments confirm, that the
               force field reflects the beam, while the mass defect is not

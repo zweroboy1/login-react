@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { loginSchema } from '../../schemas';
 import { loginUser } from '../../services/auth';
@@ -25,17 +26,14 @@ export const Login: React.FC = () => {
     try {
       const credentials = await loginUser(data);
       dispatch(setUser(credentials));
-      console.log(credentials);
       history('/');
     } catch (e) {
-      const errorText = e instanceof Error ? e.message : null;
-      console.log(errorText);
+      const errorText = e instanceof Error ? e.message : 'Something went wrong';
       setButtonDisabled(false);
-      /*
-      toast.error(toastText, {
+      toast.error(errorText, {
         toastId: 'toast',
         className: 'toast-error',
-      });*/
+      });
     } finally {
       setSubmiting(false);
     }

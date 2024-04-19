@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Deal } from '../../types';
 import { BASE_URL } from '../../constants';
+import { toast } from 'react-toastify';
 
 export const Deals: React.FC = () => {
   const [deals, setDeals] = useState<Deal[]>([]);
@@ -11,7 +12,15 @@ export const Deals: React.FC = () => {
     fetch(endpoint)
       .then((response) => response.json() as Promise<Deal[]>)
       .then((data) => setDeals(data))
-      .catch((error) => console.error('Error fetching tasks:', error));
+      .catch((e) => {
+        const errorMessage =
+          e instanceof Error ? e.message : 'Error fetching deals';
+        const error =
+          errorMessage === 'Failed to fetch'
+            ? 'Backend server is not available'
+            : errorMessage;
+        toast.error(error, { toastId: 'toast', className: 'toast-error' });
+      });
   }, []);
 
   return (

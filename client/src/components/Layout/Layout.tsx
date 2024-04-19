@@ -1,13 +1,19 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from '../Header/Header';
-// import { ToastContainer } from 'react-toastify';
-// import { TOAST_DELAY } from '../../constants';
+import { ToastContainer } from 'react-toastify';
 
-// TODO: hide ToastContainer
+import 'react-toastify/dist/ReactToastify.css';
+
 export const Layout: React.FC = () => {
   return (
     <div className="wrapper">
+      <ToastContainer
+        limit={1}
+        autoClose={3000}
+        position="bottom-right"
+        theme="colored"
+      />
       <Header />
       <main className="main">
         <Outlet />
@@ -15,8 +21,3 @@ export const Layout: React.FC = () => {
     </div>
   );
 };
-
-/*
-      <ToastContainer limit={1} autoClose={TOAST_DELAY} position="top-center" />
-
-*/

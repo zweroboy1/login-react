@@ -14,6 +14,7 @@
     line-height: 20px;
   }
   &__container {
+    position: relative;
     width: 100%;
   }
   &__field {
@@ -30,5 +31,16 @@
     &::placeholder {
       opacity: 0.5;
     }
+  }
+
+  &__error-message {
+    position: absolute;
+    top: -5px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    font-size: 12px;
+    color: red;
   }
 }

@@ -49,9 +49,42 @@
     color: $light-color;
     border: 0;
   }
+
+  &:disabled {
+    filter: grayscale(0.5);
+    cursor: not-allowed;
+  }
+
+  &_loading:disabled {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+      width: 18px;
+      height: 18px;
+      background-image: url(/src/assets/loader.svg);
+      background-repeat: no-repeat;
+      animation: spin 1s linear infinite;
+      z-index: 3;
+    }
+    & span {
+      visibility: hidden;
+    }
+  }
 }
 
 .button:focus,
 .button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
